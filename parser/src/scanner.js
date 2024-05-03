@@ -76,14 +76,12 @@ export default class Scanner {
                 `💰 <b>${post.price}</b>\n` +
                 `👀 <b>${post.views}</b>\n` +
                 `💬 <b>${post.answers}</b>\n` +
-                `<b>${post.addedAt}</b>\n` +
-                `<a href='${post.url}'>Просмотр</a>` +
-                `<a href='${post.url}'>.</a>`, 
+                `<b>${post.addedAt}</b>\n`, 
                 {
                   parse_mode: "HTML",
                   reply_markup: {
                     inline_keyboard: [
-                      [{text: 'Просмотрено', callback_data: 'delete'}]
+                      [{ text: 'Смотреть', url: post.url }],
                     ]
                   },
                   disable_web_page_preview: true,
@@ -92,7 +90,7 @@ export default class Scanner {
             });
           }
 
-          console.log(post);
+          // console.log(post);
           newPosts.push(post);
         }
 

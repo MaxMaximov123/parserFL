@@ -19,19 +19,4 @@ const commands = [
 
 telegramBot.setMyCommands(commands);
 
-telegramBot.on('callback_query', async ctx => {
-
-    try {
-        switch(ctx.data) {
-            case "delete":
-                await telegramBot.deleteMessage(ctx.message.chat.id, ctx.message.message_id);
-                break;
-        }
-    }
-    catch(error) {
-        console.log(`telegramBot error ${error}`);
-    }
-
-})
-
 export default telegramBot;
