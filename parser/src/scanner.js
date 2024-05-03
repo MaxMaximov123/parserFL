@@ -126,7 +126,7 @@ export default class Scanner {
 			try {
 				console.log(msg);
 				if (msg.text == '/start') {
-					await topFeedsInspectorBot.sendMessage(msg.chat.id, `Вы запустили бота!`);
+					await telegramBot.sendMessage(msg.chat.id, `Вы запустили бота!`);
 				} else {
 					await telegramBot.sendMessage(
 						msg.chat.id, 
