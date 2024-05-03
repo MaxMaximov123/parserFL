@@ -121,5 +121,22 @@ export default class Scanner {
 
     this.postKeys = (await db('posts').select('key')).map(obj => obj.key);
     this.scanning();
+
+    telegramBot.on('text', async msg => {
+			try {
+				console.log(msg);
+				if (msg.text == '/start') {
+					await topFeedsInspectorBot.sendMessage(msg.chat.id, `Вы запустили бота!`);
+				} else {
+					await telegramBot.sendMessage(
+						msg.chat.id, 
+						`В базе ${this.postKeys.length} заказов`,
+						);
+				}
+			}
+			catch(error) {
+				logger.error(`TopFeedsInspectorBot error ${error}`);
+			}
+		})
   }
 }
