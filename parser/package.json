@@ -1,0 +1,26 @@
+{
+  "name": "parser",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "db": "^4.0.1",
+    "dotenv": "^16.3.1",
+    "knex": "^2.5.1",
+    "knex-paginate": "^3.1.1",
+    "knex-stringcase": "^1.4.6",
+    "lodash": "^4.17.21",
+    "node-telegram-bot-api": "^0.65.1",
+    "node-vk-sdk": "^1.1.7",
+    "pg": "^8.11.1",
+    "puppeteer": "^21.1.1",
+    "ws": "^8.11.0"
+  }
+}

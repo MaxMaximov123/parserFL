@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: max
+      POSTGRES_PASSWORD: jbfgslgsdlfkngd
+      POSTGRES_DB: posts
+      POSTGRES_PORT: 5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 3201:5432
+    # network_mode: "host"
+  
+  scanner:
+    restart: always
+    build:
+      context: .
+      dockerfile: parser/Dockerfile
+    environment:
+      DATABASE_POOL_MAX: 40
+      DATABASE_POOL_MIN: 5
+      DATABASE_URL: postgres://max:jbfgslgsdlfkngd@localhost:3201/posts
+      BOT_API_KEY: 7018708866:AAEW9XwwFnMSnwrtTW7RTLonPYpIGhUAhoo
+      DATABASE_SCHEMA: public
+    depends_on:
+      - db
+    network_mode: "host"
