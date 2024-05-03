@@ -6,6 +6,7 @@ import telegramBot from './bot-telegram.js';
 export default class Scanner {
   browser = null;
   page = null;
+  postKeys = null;
 
   constructor() {
     this.start().catch((error) => {
@@ -66,6 +67,7 @@ export default class Scanner {
           post.createdAt = new Date();
 
           if (!this.postKeys.includes(post.key)) {
+            this.postKeys.push(post.key);
             Object.values(config.botUserIds).map(userId => {
               telegramBot.sendMessage(
                 userId,
