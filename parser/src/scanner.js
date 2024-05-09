@@ -77,7 +77,7 @@ export default class Scanner {
                 telegramBot.sendMessage(
                   user.id,
                   `<b>${post.title.toUpperCase()}</b>\n\n` +
-                  `${info}` +
+                  // `${info}` +
                   `${post.description}\n\n` +
                   `💰 <b>${post.price}</b>\n` +
                   `👀 <b>${post.views}</b>\n` +
