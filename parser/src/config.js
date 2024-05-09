@@ -7,7 +7,7 @@ const config = {};
 
 config.botUserIds = {
 	Maxim: 1387680086,
-	// Nikita: 776127321,
+	Nikita: 776127321,
 };
 
 config.botApiKey = process.env.BOT_API_KEY;
