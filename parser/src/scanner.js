@@ -68,25 +68,32 @@ export default class Scanner {
 
           if (!this.postKeys.includes(post.key)) {
             this.postKeys.push(post.key);
-            Object.values(config.botUserIds).map(userId => {
-              telegramBot.sendMessage(
-                userId,
-                `<b>${post.title.toUpperCase()}</b>\n\n` +
-                `${post.description}\n\n` +
-                `💰 <b>${post.price}</b>\n` +
-                `👀 <b>${post.views}</b>\n` +
-                `💬 <b>${post.answers}</b>\n` +
-                `<b>${post.addedAt}</b>\n`, 
-                {
-                  parse_mode: "HTML",
-                  reply_markup: {
-                    inline_keyboard: [
-                      [{ text: 'Смотреть', url: post.url }],
-                    ]
-                  },
-                  disable_web_page_preview: true,
+            Object.values(config.botUsers).map(user => {
+              if (user.filter(post.title + ' ' + post.description) || user.id === 1387680086) {
+                let info = '';
+                if (user.id === 1387680086) {
+                  info = `М: ${config.botUsers['Maxim'].filter(post.title + ' ' + post.description)}; Н: ${config.botUsers['Nikita'].filter(post.title + ' ' + post.description)}`
                 }
-              );
+                telegramBot.sendMessage(
+                  user.id,
+                  `<b>${post.title.toUpperCase()}</b>\n\n` +
+                  `${info}` +
+                  `${post.description}\n\n` +
+                  `💰 <b>${post.price}</b>\n` +
+                  `👀 <b>${post.views}</b>\n` +
+                  `💬 <b>${post.answers}</b>\n` +
+                  `<b>${post.addedAt}</b>\n`, 
+                  {
+                    parse_mode: "HTML",
+                    reply_markup: {
+                      inline_keyboard: [
+                        [{ text: 'Смотреть', url: post.url }],
+                      ]
+                    },
+                    disable_web_page_preview: true,
+                  }
+                );
+              }
             });
           }
 
