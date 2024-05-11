@@ -13,7 +13,7 @@ config.botUsers = {
 			if ([
 				'tild', 'тильд', '1с', '1c', 
 				'вордпрес', 'wordpr', 'диза', 'битр',
-				'seo', 'smm',
+				'seo', 'smm', 'php', 'java', 'wp',
 				'реклам'
 			].some((word) => fullName.includes(word))) {
 				return false;
@@ -35,7 +35,7 @@ config.botUsers = {
 				'tild', 'тильд', '1с', '1c', 
 				'вордпрес', 'wordpr', 'диза', 'битр',
 				'seo', 'сайт', 'парс', 'верст', 'smm',
-				'реклам', 'иконк', 'ленд', 'озвуч', 'голос', 'музы', 'стих'
+				'реклам', 'иконк', 'ленд', 'озвуч', 'голос', 'музы', 'стих', 'node', 'php', 'java', 'wp'
 			].some((word) => fullName.includes(word))) {
 				return true;
 			}
